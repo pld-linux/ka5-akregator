@@ -109,7 +109,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/48x48/apps/akregator.png
 %{_iconsdir}/hicolor/64x64/apps/akregator.png
 %{_iconsdir}/hicolor/scalable/apps/akregator.svg
-%{_datadir}/kconf_update/akregator-15.08-kickoff.sh
+%attr(755,root,root) %{_datadir}/kconf_update/akregator-15.08-kickoff.sh
 %{_datadir}/kconf_update/akregator.upd
 %{_datadir}/knotifications5/akregator.notifyrc
 # TODO proper package for dirs
