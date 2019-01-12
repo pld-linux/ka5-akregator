@@ -1,14 +1,14 @@
-%define		kdeappsver	18.12.0
+%define		kdeappsver	18.12.1
 %define		qtver		5.9.0
 %define		kaname		akregator
 Summary:	A KDE Feed Reader
 Name:		ka5-%{kaname}
-Version:	18.12.0
+Version:	18.12.1
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/applications/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	87ab23e58cafc571bac9e2df3ff453c3
+# Source0-md5:	32e7160fb27ec05d31c86a03ac0fd12f
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel
@@ -25,13 +25,13 @@ BuildRequires:	cmake >= 2.8.12
 BuildRequires:	gettext-devel
 BuildRequires:	grantlee-qt5-devel >= 5.1
 BuildRequires:	ka5-akonadi-mime-devel
-BuildRequires:	ka5-grantleetheme-devel >= 18.12.0
-BuildRequires:	ka5-kontactinterface-devel >= 18.12.0
-BuildRequires:	ka5-kpimtextedit-devel >= 18.12.0
-BuildRequires:	ka5-libkdepim-devel >= 18.12.0
-BuildRequires:	ka5-libkleo-devel >= 18.12.0
-BuildRequires:	ka5-messagelib-devel >= 18.12.0
-BuildRequires:	ka5-pimcommon-devel >= 18.12.0
+BuildRequires:	ka5-grantleetheme-devel >= %{kdeappsver}
+BuildRequires:	ka5-kontactinterface-devel >= %{kdeappsver}
+BuildRequires:	ka5-kpimtextedit-devel >= %{kdeappsver}
+BuildRequires:	ka5-libkdepim-devel >= %{kdeappsver}
+BuildRequires:	ka5-libkleo-devel >= %{kdeappsver}
+BuildRequires:	ka5-messagelib-devel >= %{kdeappsver}
+BuildRequires:	ka5-pimcommon-devel >= %{kdeappsver}
 BuildRequires:	kf5-extra-cmake-modules >= 5.53.0
 BuildRequires:	kf5-kcmutils-devel >= 5.51.0
 BuildRequires:	kf5-kcrash-devel >= 5.51.0
@@ -43,6 +43,7 @@ BuildRequires:	kf5-kparts-devel >= 5.53.0
 BuildRequires:	kf5-ktexteditor-devel >= 5.51.0
 BuildRequires:	kf5-kxmlgui-devel >= 5.51.0
 BuildRequires:	kf5-syndication-devel >= 5.51.0
+BuildRequires:	ninja
 BuildRequires:	qt5-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	shared-mime-info
@@ -60,14 +61,14 @@ A KDE Feed Reader.
 install -d build
 cd build
 %cmake \
+	-G Ninja \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
 	..
-%{__make}
+%ninja_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} -C build install \
-	DESTDIR=$RPM_BUILD_ROOT
+%ninja_install -C build
 
 %find_lang %{kaname} --all-name --with-kde
 
