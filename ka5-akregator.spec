@@ -1,15 +1,15 @@
-%define		kdeappsver	19.04.1
+%define		kdeappsver	20.12.3
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		akregator
 Summary:	A KDE Feed Reader
 Name:		ka5-%{kaname}
-Version:	19.04.1
+Version:	20.12.3
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
-Source0:	http://download.kde.org/stable/applications/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	340261c2093ab372367dbc99d4226831
+Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
+# Source0-md5:	548cdc99ac47e8a55d23d6e3c9bb09bd
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel
@@ -82,8 +82,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
-/etc/xdg/akregator.categories
-/etc/xdg/akregator.renamecategories
 %attr(755,root,root) %{_bindir}/akregator
 %attr(755,root,root) %{_bindir}/akregatorstorageexporter
 %attr(755,root,root) %{_libdir}/libakregatorinterfaces.so
@@ -99,7 +97,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/qt5/plugins/akregator_config_plugins.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/akregator_mk4storage_plugin.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/akregatorpart.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kontact_akregatorplugin.so
 %{_datadir}/akregator
 %{_desktopdir}/org.kde.akregator.desktop
 %{_datadir}/config.kcfg/akregator.kcfg
@@ -126,10 +123,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kservices5/akregator_config_general.desktop
 %{_datadir}/kservices5/akregator_config_plugins.desktop
 %{_datadir}/kservices5/akregator_mk4storage_plugin.desktop
-%{_datadir}/kservices5/akregator_part.desktop
 %{_datadir}/kservices5/feed.protocol
+%dir %{_libdir}/qt5/plugins/kontact5
+%attr(755,root,root) %{_libdir}/qt5/plugins/kontact5/kontact_akregatorplugin.so
 # TODO proper package for dir
 %dir %{_datadir}/kservices5/kontact
 %{_datadir}/kservices5/kontact/akregatorplugin.desktop
 %{_datadir}/kservicetypes5/akregator_plugin.desktop
 %{_datadir}/metainfo/org.kde.akregator.appdata.xml
+%{_datadir}/qlogging-categories5/akregator.categories
+%{_datadir}/qlogging-categories5/akregator.renamecategories
