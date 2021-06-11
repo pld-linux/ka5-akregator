@@ -1,15 +1,15 @@
-%define		kdeappsver	21.04.1
+%define		kdeappsver	21.04.2
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		akregator
 Summary:	A KDE Feed Reader
 Name:		ka5-%{kaname}
-Version:	21.04.1
+Version:	21.04.2
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	ed22fb54acfdd6b786f3504bb43578b6
+# Source0-md5:	7b02b221ed1c6ce3c1db48c0c632cb48
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel
@@ -84,7 +84,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/akregator
 %attr(755,root,root) %{_bindir}/akregatorstorageexporter
-%attr(755,root,root) %{_libdir}/libakregatorinterfaces.so
+%{_libdir}/libakregatorinterfaces.so
 %ghost %{_libdir}/libakregatorinterfaces.so.5
 %attr(755,root,root) %{_libdir}/libakregatorinterfaces.so.*.*.*
 %ghost %{_libdir}/libakregatorprivate.so.5
