@@ -1,15 +1,15 @@
-%define		kdeappsver	21.04.3
+%define		kdeappsver	21.08.0
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		akregator
 Summary:	A KDE Feed Reader
 Name:		ka5-%{kaname}
-Version:	21.04.3
+Version:	21.08.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	03ee10443962cbebb59d865cfaaed1bb
+# Source0-md5:	09a4362477accb2d06b11d603fe33397
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel
@@ -84,17 +84,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/akregator
 %attr(755,root,root) %{_bindir}/akregatorstorageexporter
-%{_libdir}/libakregatorinterfaces.so
 %ghost %{_libdir}/libakregatorinterfaces.so.5
 %attr(755,root,root) %{_libdir}/libakregatorinterfaces.so.*.*.*
 %ghost %{_libdir}/libakregatorprivate.so.5
 %attr(755,root,root) %{_libdir}/libakregatorprivate.so.*.*.*
-%attr(755,root,root) %{_libdir}/qt5/plugins/akregator_config_advanced.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/akregator_config_appearance.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/akregator_config_archive.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/akregator_config_browser.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/akregator_config_general.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/akregator_config_plugins.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/akregator_mk4storage_plugin.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/akregatorpart.so
 %{_datadir}/akregator
@@ -123,7 +116,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kservices5/akregator_config_general.desktop
 %{_datadir}/kservices5/akregator_config_plugins.desktop
 %{_datadir}/kservices5/akregator_mk4storage_plugin.desktop
-%{_datadir}/kservices5/feed.protocol
 %dir %{_libdir}/qt5/plugins/kontact5
 %attr(755,root,root) %{_libdir}/qt5/plugins/kontact5/kontact_akregatorplugin.so
 # TODO proper package for dir
@@ -133,3 +125,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/metainfo/org.kde.akregator.appdata.xml
 %{_datadir}/qlogging-categories5/akregator.categories
 %{_datadir}/qlogging-categories5/akregator.renamecategories
+%dir %{_libdir}/qt5/plugins/pim/kcms/akregator
+%attr(755,root,root) %{_libdir}/qt5/plugins/pim/kcms/akregator/akregator_config_advanced.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/pim/kcms/akregator/akregator_config_appearance.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/pim/kcms/akregator/akregator_config_archive.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/pim/kcms/akregator/akregator_config_browser.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/pim/kcms/akregator/akregator_config_general.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/pim/kcms/akregator/akregator_config_plugins.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/pim/kcms/akregator/akregator_config_security.so
+%{_datadir}/kservices5/akregator_config_security.desktop
