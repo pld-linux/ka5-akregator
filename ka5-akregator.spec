@@ -1,15 +1,15 @@
-%define		kdeappsver	21.08.3
+%define		kdeappsver	21.12.0
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		akregator
 Summary:	A KDE Feed Reader
 Name:		ka5-%{kaname}
-Version:	21.08.3
+Version:	21.12.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	9f66e87f4c193e320347f87984830a40
+# Source0-md5:	ffb3a325de57a3db966a4242aef8aeb1
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel
@@ -102,13 +102,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/48x48/apps/akregator.png
 %{_iconsdir}/hicolor/64x64/apps/akregator.png
 %{_iconsdir}/hicolor/scalable/apps/akregator.svg
-%attr(755,root,root) %{_datadir}/kconf_update/akregator-15.08-kickoff.sh
-%{_datadir}/kconf_update/akregator.upd
 %{_datadir}/knotifications5/akregator.notifyrc
-# TODO proper package for dirs
-%dir %{_datadir}/kontact
-%dir %{_datadir}/kontact/ksettingsdialog
-%{_datadir}/kontact/ksettingsdialog/akregator.setdlg
 %{_datadir}/kservices5/akregator_config_advanced.desktop
 %{_datadir}/kservices5/akregator_config_appearance.desktop
 %{_datadir}/kservices5/akregator_config_archive.desktop
