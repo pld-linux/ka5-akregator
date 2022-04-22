@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	21.12.3
+%define		kdeappsver	22.04.0
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		akregator
 Summary:	A KDE Feed Reader
 Name:		ka5-%{kaname}
-Version:	21.12.3
+Version:	22.04.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	f5997232fee2aa99eade078c7760034a
+# Source0-md5:	a6622f02ffda906ed71804eb6178b3b1
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel
@@ -112,18 +112,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/64x64/apps/akregator.png
 %{_iconsdir}/hicolor/scalable/apps/akregator.svg
 %{_datadir}/knotifications5/akregator.notifyrc
-%{_datadir}/kservices5/akregator_config_advanced.desktop
-%{_datadir}/kservices5/akregator_config_appearance.desktop
-%{_datadir}/kservices5/akregator_config_archive.desktop
-%{_datadir}/kservices5/akregator_config_browser.desktop
-%{_datadir}/kservices5/akregator_config_general.desktop
-%{_datadir}/kservices5/akregator_config_plugins.desktop
 %{_datadir}/kservices5/akregator_mk4storage_plugin.desktop
 %dir %{_libdir}/qt5/plugins/kontact5
 %attr(755,root,root) %{_libdir}/qt5/plugins/kontact5/kontact_akregatorplugin.so
 # TODO proper package for dir
-%dir %{_datadir}/kservices5/kontact
-%{_datadir}/kservices5/kontact/akregatorplugin.desktop
 %{_datadir}/kservicetypes5/akregator_plugin.desktop
 %{_datadir}/metainfo/org.kde.akregator.appdata.xml
 %{_datadir}/qlogging-categories5/akregator.categories
@@ -136,4 +128,3 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/qt5/plugins/pim/kcms/akregator/akregator_config_general.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/pim/kcms/akregator/akregator_config_plugins.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/pim/kcms/akregator/akregator_config_security.so
-%{_datadir}/kservices5/akregator_config_security.desktop
