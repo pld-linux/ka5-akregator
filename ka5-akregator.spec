@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	22.08.1
+%define		kdeappsver	22.08.2
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		akregator
 Summary:	A KDE Feed Reader
 Name:		ka5-%{kaname}
-Version:	22.08.1
-Release:	3
+Version:	22.08.2
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	5e8cc14aee5a51a363143442e1aca23d
+# Source0-md5:	4032f3b22ce811726ca1521ec6ed0a06
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel
@@ -47,6 +47,7 @@ BuildRequires:	kf5-kparts-devel >= %{kframever}
 BuildRequires:	kf5-ktexteditor-devel >= %{kframever}
 BuildRequires:	kf5-kxmlgui-devel >= %{kframever}
 BuildRequires:	kf5-syndication-devel >= %{kframever}
+BuildRequires:	kuserfeedback-devel
 BuildRequires:	ninja
 BuildRequires:	qt5-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
@@ -125,3 +126,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/qt5/plugins/pim5/kcms/akregator/akregator_config_plugins.so
 %{_libdir}/qt5/plugins/pim5/kcms/akregator/akregator_config_security.so
 %{_libdir}/qt5/plugins/pim5/kontact/kontact_akregatorplugin.so
+%{_libdir}/qt5/plugins/pim5/kcms/akregator/akregator_config_userfeedback.so
