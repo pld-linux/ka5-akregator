@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	23.04.0
+%define		kdeappsver	23.04.1
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		akregator
 Summary:	A KDE Feed Reader
 Name:		ka5-%{kaname}
-Version:	23.04.0
-Release:	2
+Version:	23.04.1
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	03a4c127793cbd000f905a739d2c3336
+# Source0-md5:	4f40220ec95762ea7eac9148d8294299
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel
